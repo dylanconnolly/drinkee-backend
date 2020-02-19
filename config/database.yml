@@ -1,0 +1,11 @@
+development:
+  adapter: postgresql
+  database: drinkee-development
+
+test:
+  adapter: postgresql
+  database: drinkee-test
+
+production:
+  adapter: postgresql
+  database: drinkee-production
