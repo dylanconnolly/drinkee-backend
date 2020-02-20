@@ -12,6 +12,7 @@ gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
 gem 'rake'
 gem 'pg'
 gem 'require_all'
+gem 'faraday'
 
 group :test do
   gem 'rspec'
