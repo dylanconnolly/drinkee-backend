@@ -2,6 +2,10 @@ require 'faraday'
 require 'pry'
 
 class CocktailService
+  def get_ingredients(ingredient_id)
+    json = get_json("1/lookup.php?iid=#{ingredient_id}")
+  end
+
   def get_drinks(character)
     get_json("1/search.php?f=#{character}")
   end
