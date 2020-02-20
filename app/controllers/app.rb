@@ -1,8 +1,8 @@
 require 'sinatra'
 
 class DrinkeeApp < Sinatra::Base
-  set :method_override, true
-  set :root, APP_ROOT
+  # set :method_override, true
+  # set :root, APP_ROOT
 
   get '/' do
     "HEY THERE THIS IS WORKING NOW"
