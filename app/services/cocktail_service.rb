@@ -3,7 +3,7 @@ require 'pry'
 
 class CocktailService
   def get_ingredients(ingredient_id)
-    json = get_json("1/lookup.php?iid=#{ingredient_id}")
+    get_json("1/lookup.php?iid=#{ingredient_id}")
   end
 
   def get_drinks(character)
