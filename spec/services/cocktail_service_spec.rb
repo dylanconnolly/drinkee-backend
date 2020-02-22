@@ -15,24 +15,12 @@ RSpec.describe "CocktailService" do
    expect(response_2["drinks"].first["strDrink"]).to eq("Frappé")
   end
 
-  xit "gets all ingredients" do
+  it "gets all ingredients" do
     cocktail_service = CocktailService.new
     cocktail_service.conn
 
-    number = 37
-    array = []
-    response = cocktail_service.get_ingredients(number)
-
-    until number == 601 do
-      response = cocktail_service.get_ingredients(number)
-      if response["ingredients"] != nil
-        response_name = response["ingredients"].first["strIngredient"]
-        array << response_name
-        number += 1
-      else
-        number += 1
-      end
-    end
+    ## API returns ingredients based off ID. IDs range from 1 - 601
+    response = cocktail_service.get_ingredients(1)
 
     expect(response["ingredients"].first["strIngredient"]).to eq("Vodka")
   end
