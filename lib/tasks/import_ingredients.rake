@@ -6,6 +6,8 @@ require 'pg'
 
 namespace :import do
   task :ingredients do
+
+    ## ingredient IDs range from 1 - 601 so we need to make API call in that range
     ingredient_ids = (1..602).to_a
 
     service = CocktailService.new
