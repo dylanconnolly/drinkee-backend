@@ -1,3 +1,5 @@
+require 'fast_jsonapi'
+
 class IngredientSerializer
   include FastJsonapi::ObjectSerializer
 
