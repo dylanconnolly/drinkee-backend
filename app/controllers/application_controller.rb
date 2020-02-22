@@ -11,8 +11,10 @@ class ApplicationController < Sinatra::Base
 
   get '/ingredients' do
     content_type  :json
-    
-    Ingredient.all.to_json
+
+    ingredients = Ingredient.all
+
+    IngredientSerializer.new(ingredients).to_json
   end
 end
 
