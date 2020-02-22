@@ -1,5 +1,8 @@
 require 'bundler'
 require 'sinatra'
+require 'sinatra/activerecord'
+require 'sinatra/activerecord/rake'
+require 'rake'
 Bundler.require
 
 APP_ROOT = File.expand_path("..", __dir__)
