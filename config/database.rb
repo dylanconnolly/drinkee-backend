@@ -1,4 +1,5 @@
-database_name = "drinkee-#{Sinatra::Application.environment}"
+database_name = "drinkee-#{ApplicationController.environment}"
+
 db = URI.parse(ENV['DATABASE_URL'] || "postgres://localhost/#{database_name}")
 
 # connect ActiveRecord with the current database
