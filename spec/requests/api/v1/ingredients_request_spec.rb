@@ -1,12 +1,15 @@
-require 'spec_helper'
+require './spec/spec_helper'
 
 describe 'ingredients request' do
   it 'returns all of the ingredients in the database' do
+    # create_list(:ingredient, 10)
+    #
+    get '/ingredients'
 
-    get '/api/v1/ingredients'
 
-    expect(response).to be_successfull
+    expect(last_response).to be_successful
 
-    ingredients = JSON.parse(response.body)["data"]
+    ingredients = JSON.parse(last_response.body)
+    
   end
 end
