@@ -11,7 +11,7 @@ class CocktailService
   end
 
   def conn
-    connection = Faraday.new(url: "https://thecocktaildb.com/api/json/v1/") do
+    Faraday.new(url: "https://thecocktaildb.com/api/json/v1/") do
     end
   end
 
