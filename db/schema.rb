@@ -59,7 +59,6 @@ ActiveRecord::Schema.define(version: 2020_02_21_154634) do
   create_table "ingredients", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.string "type"
     t.string "alcohol"
     t.integer "abv"
     t.datetime "created_at", precision: 6, null: false
