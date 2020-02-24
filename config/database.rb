@@ -1,4 +1,4 @@
-database_name = "drinkee-#{ApplicationController.environment}"
+database_name = "drinkee-#{ENV['RACK_ENV']}"
 
 db = URI.parse(ENV['DATABASE_URL'] || "postgres://localhost/#{database_name}")
 

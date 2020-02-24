@@ -16,6 +16,14 @@ class ApplicationController < Sinatra::Base
 
     IngredientSerializer.new(ingredients).to_json
   end
+
+  get '/ingredients/:id' do
+    content_type :json
+
+    ingredient = Ingredient.find(params[:id])
+
+    IngredientSerializer.new(ingredient).to_json
+  end
 end
 
 # class ApplicationController < DrinkeeApp
