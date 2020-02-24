@@ -1,7 +1,7 @@
 ENV['RACK_ENV'] = 'test'
 
 require 'require_all'
-require_all './app'
+require_all 'app'
 require 'shoulda-matchers'
 require 'factory_bot'
 require 'rack/test'

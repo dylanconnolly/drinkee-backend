@@ -1,10 +1,11 @@
 require './spec/spec_helper'
 
 describe 'ingredients request' do
+
   it 'returns all of the ingredients in the database' do
     create_list(:ingredient, 10)
 
-    get '/ingredients'
+    get '/api/v1/ingredients'
 
     expect(last_response).to be_successful
 
@@ -17,7 +18,7 @@ describe 'ingredients request' do
     ingredient_1 = create(:ingredient, name: "Woopdidy")
     ingredient_2 = create(:ingredient, name: "Skoopdidy")
 
-    get "/ingredients/#{ingredient_1.id}"
+    get "/api/v1/ingredients/#{ingredient_1.id}"
 
     expect(last_response).to be_successful
 
@@ -26,7 +27,7 @@ describe 'ingredients request' do
     expect(ingredient["data"]["attributes"]["name"]).to eq(ingredient_1.name)
     expect(ingredient["data"]["attributes"]["id"]).to eq(ingredient_1.id)
 
-    get "/ingredients/#{ingredient_2.id}"
+    get "/api/v1/ingredients/#{ingredient_2.id}"
 
     expect(last_response).to be_successful
 
