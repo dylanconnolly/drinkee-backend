@@ -10,10 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_26_143742) do
+ActiveRecord::Schema.define(version: 2020_02_26_173555) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cabinet_ingredients", force: :cascade do |t|
+    t.bigint "cabinet_id"
+    t.bigint "ingredient_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["cabinet_id"], name: "index_cabinet_ingredients_on_cabinet_id"
+    t.index ["ingredient_id"], name: "index_cabinet_ingredients_on_ingredient_id"
+  end
+
+  create_table "cabinets", force: :cascade do |t|
+    t.string "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "drink_ingredients", force: :cascade do |t|
     t.bigint "drink_id"
@@ -74,6 +89,8 @@ ActiveRecord::Schema.define(version: 2020_02_26_143742) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "cabinet_ingredients", "cabinets"
+  add_foreign_key "cabinet_ingredients", "ingredients"
   add_foreign_key "drink_ingredients", "drinks"
   add_foreign_key "drink_ingredients", "ingredients"
 end
