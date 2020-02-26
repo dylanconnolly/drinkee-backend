@@ -26,6 +26,15 @@ class ApplicationController < Sinatra::Base
 
     IngredientSerializer.new(ingredient).to_json
   end
+
+  post '/api/v1/:user_id/cabinet' do
+    require "pry"; binding.pry
+    Cabinet.create(user_id: params[:user_id])
+  end
+
+  patch '/api/v1/:user_id/cabinet' do
+
+  end
 end
 
 # class ApplicationController < DrinkeeApp
