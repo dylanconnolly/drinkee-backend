@@ -14,6 +14,7 @@ gem 'pg'
 gem 'require_all'
 gem 'faraday'
 gem 'fast_jsonapi'
+gem "activemodel", require: "active_model"
 
 group :test do
   gem 'rspec'
@@ -22,6 +23,6 @@ end
 
 group :development, :test do
   gem "shoulda-matchers", "~> 2.4.0", require: false
-  gem "activemodel", require: "active_model"
+  # gem "activemodel", require: "active_model"
   gem 'factory_bot'
 end
