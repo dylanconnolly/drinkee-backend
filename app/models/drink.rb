@@ -6,4 +6,7 @@ class Drink < ApplicationRecord
   validates_presence_of :glass
   validates_presence_of :instructions
   validates_presence_of :image
+
+  has_many :drink_ingredients
+  has_many :ingredients, through: :drink_ingredients
 end

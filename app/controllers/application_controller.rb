@@ -1,15 +1,17 @@
 require 'sinatra'
+require_all 'app'
 
 
 class ApplicationController < Sinatra::Base
   set :method_override, true
+
   # set :root, APP_ROOT
 
   get '/' do
     "HEY THERE THIS IS WORKING NOW"
   end
 
-  get '/ingredients' do
+  get '/api/v1/ingredients' do
     content_type  :json
 
     ingredients = Ingredient.all
@@ -17,7 +19,7 @@ class ApplicationController < Sinatra::Base
     IngredientSerializer.new(ingredients).to_json
   end
 
-  get '/ingredients/:id' do
+  get '/api/v1/ingredients/:id' do
     content_type :json
 
     ingredient = Ingredient.find(params[:id])
