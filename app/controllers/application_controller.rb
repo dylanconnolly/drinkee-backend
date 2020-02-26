@@ -28,12 +28,25 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/api/v1/:user_id/cabinet' do
-    require "pry"; binding.pry
     Cabinet.create(user_id: params[:user_id])
   end
 
   patch '/api/v1/:user_id/cabinet' do
+    cabinet = Cabinet.find_by_user_id(params[:user_id])
+    ingredient_ids = JSON.parse(request.body.read)
+    cabinet.ingredients = []
+    ingredient_ids.each do |ingredient_id|
+      ingredient = Ingredient.find(ingredient_id)
+      cabinet.ingredients << ingredient
+    end
+  end
 
+  get '/api/v1/:user_id/cabinet' do
+    content_type :json
+
+    cabinet = Cabinet.find_by_user_id(params[:user_id])
+
+    IngredientSerializer.new(cabinet.ingredients).to_json
   end
 end
 
