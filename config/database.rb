@@ -1,5 +1,16 @@
-if ENV['RACK_ENV'] == 'development' || 'test'
+if ENV['RACK_ENV'] == 'production'
+  db = URI.parse(ENV['DATABASE_URL']
 
+  ActiveRecord::Base.establish_connection(
+    :adapter  => 'postgresql',
+    :host     => db.host,
+    # :port     => db.port,
+    :username => db.user,
+    :password => db.password,
+    :database => "#{ENV['DATABASE_NAME']}",
+    :encoding => 'utf8'
+  )
+else
   database_name = "drinkee-#{ENV['RACK_ENV']}"
 
   db = URI.parse(ENV['DATABASE_URL'] || "postgres://localhost/#{database_name}")
