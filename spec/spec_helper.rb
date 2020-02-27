@@ -49,6 +49,7 @@ RSpec.configure do |config|
   config.after(:each) do
     Ingredient.destroy_all
     Drink.destroy_all
+    Cabinet.destroy_all
   end
 
   # rspec-mocks config goes here. You can use an alternate test double
