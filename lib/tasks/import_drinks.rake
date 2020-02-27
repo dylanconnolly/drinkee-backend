@@ -17,50 +17,54 @@ namespace :import do
         end
         formatted.each do |drink_formatted|
           drink = Drink.create(drink_formatted.hash_data)
-          if ingredient_1 = Ingredient.find_by_name(drink.ingredient_1)
-            drink.ingredients << ingredient_1
+          # require "pry"; binding.pry
+          if drink.ingredient_1 != nil && drink.ingredient_1 != ""
+            ingredient = Ingredient.find_by_name(drink.ingredient_1.downcase.gsub('ä','a'))
+            drink.ingredients << ingredient
           end
-          if ingredient_2 = Ingredient.find_by_name(drink.ingredient_2)
-            drink.ingredients << ingredient_2
+          if drink.ingredient_2 != nil && drink.ingredient_2 != ""
+            if drink.ingredient_2 == "Bailey"
+              drink.ingredients << Ingredient.find_by_name("baileys irish cream")
+            else
+              ingredient = Ingredient.find_by_name(drink.ingredient_2.downcase.gsub('ä','a'))
+              drink.ingredients << ingredient
+            end
           end
-          if ingredient_3 = Ingredient.find_by_name(drink.ingredient_3)
-            drink.ingredients << ingredient_3
+          if drink.ingredient_3 != nil && drink.ingredient_3 != ""
+            ingredient = Ingredient.find_by_name(drink.ingredient_3.downcase.gsub('ä','a'))
+            drink.ingredients << ingredient
           end
-          if ingredient_4 = Ingredient.find_by_name(drink.ingredient_4)
-            drink.ingredients << ingredient_4
+          if drink.ingredient_4 != nil && drink.ingredient_4 != ""
+            ingredient = Ingredient.find_by_name(drink.ingredient_4.downcase.gsub('ä','a'))
+            drink.ingredients << ingredient
           end
-          if ingredient_5 = Ingredient.find_by_name(drink.ingredient_5)
-            drink.ingredients << ingredient_5
+          if drink.ingredient_5 != nil && drink.ingredient_5 != ""
+            ingredient = Ingredient.find_by_name(drink.ingredient_5.downcase.gsub('ä','a'))
+            drink.ingredients << ingredient
           end
-          if ingredient_6 = Ingredient.find_by_name(drink.ingredient_6)
-            drink.ingredients << ingredient_6
+          if drink.ingredient_6 != nil && drink.ingredient_6 != ""
+            ingredient = Ingredient.find_by_name(drink.ingredient_6.downcase.gsub('ä','a'))
+            drink.ingredients << ingredient
           end
-          if ingredient_7 = Ingredient.find_by_name(drink.ingredient_7)
-            drink.ingredients << ingredient_7
+          if drink.ingredient_7 != nil && drink.ingredient_7 != ""
+            ingredient = Ingredient.find_by_name(drink.ingredient_7.downcase.gsub('ä','a'))
+            drink.ingredients << ingredient
           end
-          if ingredient_8 = Ingredient.find_by_name(drink.ingredient_8)
-            drink.ingredients << ingredient_8
+          if drink.ingredient_8 != nil && drink.ingredient_8 != ""
+            ingredient = Ingredient.find_by_name(drink.ingredient_8.downcase.gsub('ä','a'))
+            drink.ingredients << ingredient
           end
-          if ingredient_9 = Ingredient.find_by_name(drink.ingredient_9)
-            drink.ingredients << ingredient_9
+          if drink.ingredient_9 != nil && drink.ingredient_9 != ""
+            ingredient = Ingredient.find_by_name(drink.ingredient_9.downcase.gsub('ä','a'))
+            drink.ingredients << ingredient
           end
-          if ingredient_10 = Ingredient.find_by_name(drink.ingredient_10)
-            drink.ingredients << ingredient_10
+          if drink.ingredient_10 != nil && drink.ingredient_10 != ""
+            ingredient = Ingredient.find_by_name(drink.ingredient_10.downcase.gsub('ä','a'))
+            drink.ingredients << ingredient
           end
-          if ingredient_11 = Ingredient.find_by_name(drink.ingredient_11)
-            drink.ingredients << ingredient_11
-          end
-          if ingredient_12 = Ingredient.find_by_name(drink.ingredient_12)
-            drink.ingredients << ingredient_12
-          end
-          if ingredient_13 = Ingredient.find_by_name(drink.ingredient_13)
-            drink.ingredients << ingredient_13
-          end
-          if ingredient_14 = Ingredient.find_by_name(drink.ingredient_14)
-            drink.ingredients << ingredient_14
-          end
-          if ingredient_15 = Ingredient.find_by_name(drink.ingredient_15)
-            drink.ingredients << ingredient_15
+          if drink.ingredient_11 != nil && drink.ingredient_11 != ""
+            ingredient = Ingredient.find_by_name(drink.ingredient_11.downcase.gsub('ä','a'))
+            drink.ingredients << ingredient
           end
         end
       end
