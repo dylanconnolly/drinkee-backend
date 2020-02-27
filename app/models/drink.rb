@@ -7,6 +7,6 @@ class Drink < ApplicationRecord
   validates_presence_of :instructions
   validates_presence_of :image
 
-  has_many :drink_ingredients
+  has_many :drink_ingredients, dependent: :destroy
   has_many :ingredients, through: :drink_ingredients
 end

@@ -1,0 +1,42 @@
+require 'fast_jsonapi'
+
+class DrinkSerializer
+  include FastJsonapi::ObjectSerializer
+  has_many :ingredients
+  attributes :name,
+              :category,
+              :alcoholic,
+              :glass,
+              :instructions,
+              :image,
+              :ingredient_1,
+              :ingredient_2,
+              :ingredient_3,
+              :ingredient_4,
+              :ingredient_5,
+              :ingredient_6,
+              :ingredient_7,
+              :ingredient_8,
+              :ingredient_9,
+              :ingredient_10,
+              :ingredient_11,
+              :ingredient_12,
+              :ingredient_13,
+              :ingredient_14,
+              :ingredient_15,
+              :measurement_1,
+              :measurement_2,
+              :measurement_3,
+              :measurement_4,
+              :measurement_5,
+              :measurement_6,
+              :measurement_7,
+              :measurement_8,
+              :measurement_9,
+              :measurement_10,
+              :measurement_11,
+              :measurement_12,
+              :measurement_13,
+              :measurement_14,
+              :measurement_15
+end
