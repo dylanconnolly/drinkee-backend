@@ -83,6 +83,6 @@ describe 'given a user cabinet ingredients' do
     results = JSON.parse(last_response.body)
 
     expect(results["data"].count).to eq(1)
-    expect(results["data"].first["attributes"]["name"]).to eq("ABC")
+    expect(results["data"].first["attributes"]["name"]).to eq("Boxcar")
   end
 end
