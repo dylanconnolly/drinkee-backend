@@ -46,7 +46,9 @@ class ApplicationController < Sinatra::Base
   get '/api/v1/:user_id/cabinet' do
     content_type :json
 
-    cabinet = Cabinet.find_by_user_id(params[:user_id])
+    cabinet = Cabinet.find_or_create_by(user_id: params[:user_id])
+
+    # cabinet = Cabinet.find_by_user_id(params[:user_id])
 
     IngredientSerializer.new(cabinet.ingredients).to_json
   end
@@ -55,6 +57,7 @@ class ApplicationController < Sinatra::Base
     content_type :json
 
     cabinet = Cabinet.find_by_user_id(params[:user_id])
+
     drinks = []
     Drink.all.each do |drink|
       results = drink.ingredients.map do |ingredient|
