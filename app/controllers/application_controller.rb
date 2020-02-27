@@ -72,6 +72,14 @@ class ApplicationController < Sinatra::Base
 
     DrinkSerializer.new(drinks).to_json
   end
+
+  get '/api/v1/drinks' do
+    content_type :json
+
+    drink = Drink.find_by_name(params[:name])
+
+    DrinkSerializer.new(drink).to_json
+  end
 end
 
 

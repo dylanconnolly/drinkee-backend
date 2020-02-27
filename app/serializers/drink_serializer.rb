@@ -2,7 +2,7 @@ require 'fast_jsonapi'
 
 class DrinkSerializer
   include FastJsonapi::ObjectSerializer
-
+  has_many :ingredients
   attributes :name,
               :category,
               :alcoholic,
